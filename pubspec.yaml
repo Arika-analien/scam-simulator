@@ -11,11 +11,11 @@ dependencies:
     sdk: flutter
 
   # Firebase Core & Backend
-  firebase_core: ^2.32.0
-  firebase_auth: ^4.15.3
-  cloud_firestore: ^4.13.6
-  cloud_functions: ^4.7.1      # MỚI: Dùng để gọi Backend một cách an toàn
-  firebase_app_check: ^3.1.2   # MỚI: Bảo mật chống Fake Request (CSRF equivalent)
+  firebase_core: any
+  firebase_auth: any
+  cloud_firestore: any
+  cloud_functions: any      # MỚI: Dùng để gọi Backend một cách an toàn
+  firebase_app_check: any   # MỚI: Bảo mật chống Fake Request (CSRF equivalent)
   
   # Google Sign in
   google_sign_in: ^6.2.1
