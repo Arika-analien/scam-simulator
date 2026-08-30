@@ -25,7 +25,12 @@ jobs:
 
       - name: Install dependencies
         run: flutter pub get
-
+        
+      - name: Enable Web Platform
+        run: flutter create . --platforms web
+      - name: Build Web App
+        # Đường dẫn base-href phải trùng với tên repository trên GitHub
+        run: flutter build web --base-href /scam-simulator/ --release
       - name: Build Web App
         # Đường dẫn base-href phải trùng với tên repository trên GitHub
         run: flutter build web --base-href /scam-simulator/ --release
