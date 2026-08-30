@@ -1,0 +1,31 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // RLS: Kiểm tra user đã đăng nhập
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    // RLS: Kiểm tra ID của document có khớp với UID của người đang request không
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    // Khóa toàn bộ database mặc định, chỉ mở những chỗ cần thiết
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Quy tắc cho bảng users
+    match /users/{userId} {
+      // User chỉ có quyền Read/Write đúng Document mang UID của mình
+      allow read, write: if isOwner(userId);
+      
+      // Bất kỳ sub-collection nào (ví dụ lịch sử lừa đảo) cũng tuân thủ RLS này
+      match /history/{historyId} {
+        allow read, write: if isOwner(userId);
+      }
+    }
+  }
+}

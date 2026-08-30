@@ -1,0 +1,13 @@
+{
+  "name": "scam-simulator-functions",
+  "description": "Backend Firebase Functions",
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^11.8.0",
+    "firebase-functions": "^4.3.1",
+    "@google/generative-ai": "^0.2.1"
+  }
+}

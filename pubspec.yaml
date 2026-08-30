@@ -1,0 +1,32 @@
+name: scam_simulator
+description: Ứng dụng giả lập lừa đảo (Hackathon Project)
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Firebase Core & Backend
+  firebase_core: ^2.32.0
+  firebase_auth: ^4.15.3
+  cloud_firestore: ^4.13.6
+  cloud_functions: ^4.7.1      # MỚI: Dùng để gọi Backend một cách an toàn
+  firebase_app_check: ^3.1.2   # MỚI: Bảo mật chống Fake Request (CSRF equivalent)
+  
+  # Google Sign in
+  google_sign_in: ^6.2.1
+
+  # Utils & Caching
+  shared_preferences: ^2.2.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
